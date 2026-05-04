@@ -1,0 +1,10 @@
+{
+  "name": "qa-shortest-demo",
+  "version": "1.0.0",
+  "scripts": {
+    "test:shortest": "shortest run"
+  },
+  "dependencies": {
+    "shortest": "^0.0.0"
+  }
+}
