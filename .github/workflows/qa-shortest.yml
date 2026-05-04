@@ -1,7 +1,7 @@
 name: QA - Shortest
 
 on:
-  workflow_call:
+  workflow_dispatch:
     inputs:
       base-url:
         required: false
