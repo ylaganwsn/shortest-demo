@@ -1,0 +1,30 @@
+name: QA - Shortest
+
+on:
+  workflow_call:
+    inputs:
+      base-url:
+        required: false
+        type: string
+
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Install browsers
+        run: npx playwright install --with-deps
+
+      - name: Run Shortest tests
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: npx shortest run
