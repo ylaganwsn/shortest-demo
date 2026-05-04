@@ -1,10 +1,10 @@
 {
-  "name": "qa-shortest-demo",
-  "version": "1.0.0",
+  "name": "shortest-demo",
   "scripts": {
-    "test:shortest": "shortest"
+    "test:ai": "npx shortest"
   },
   "dependencies": {
-    "shortest": "latest"
+    "@antiwork/shortest": "latest",
+    "playwright": "latest"
   }
 }
