@@ -27,4 +27,4 @@ jobs:
       - name: Run Shortest tests
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-        run: npx shortest
+        run: npx playwright test
