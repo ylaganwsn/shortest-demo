@@ -28,8 +28,7 @@ jobs:
 
       - name: Run Shortest tests
         env:
-          # Required for the AI to process natural language
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          # Use the input URL in your tests
-          BASE_URL: ${{ github.event.inputs.base-url }}
+          # Ensure this matches exactly what's in your config
+          BASE_URL: ${{ github.event.inputs.base-url || 'https://example.com' }}
         run: npx shortest
