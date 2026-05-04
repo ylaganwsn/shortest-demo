@@ -4,7 +4,9 @@ on:
   workflow_dispatch:
     inputs:
       base-url:
+        description: 'URL to test'
         required: false
+        default: 'https://example.com' 
         type: string
 
 jobs:
@@ -17,14 +19,18 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: 'npm'
 
       - name: Install dependencies
         run: npm install
 
-      - name: Install browsers
+      - name: Install Playwright Browsers
         run: npx playwright install --with-deps
 
       - name: Run Shortest tests
         env:
+          # Required for the AI to process natural language
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-        run: npx playwright test
+          # Use the input URL in your tests
+          BASE_URL: ${{ github.event.inputs.base-url }}
+        run: npx shortest
