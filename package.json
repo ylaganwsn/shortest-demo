@@ -4,7 +4,7 @@
     "test:ai": "npx shortest"
   },
   "dependencies": {
-    "@antiwork/shortest": "latest",
-    "playwright": "latest"
+    "@antiwork/shortest": "0.4.7",
+    "playwright": "1.52.0"
   }
 }
