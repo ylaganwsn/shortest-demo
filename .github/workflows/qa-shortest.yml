@@ -26,6 +26,20 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
 
+      - name: Debug connectivity
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          echo "=== API Key check ==="
+          echo "Key length: ${#ANTHROPIC_API_KEY}"
+          echo "Key prefix: ${ANTHROPIC_API_KEY:0:7}"
+
+          echo "=== Anthropic API connectivity ==="
+          curl -v https://api.anthropic.com/v1/models \
+            -H "x-api-key: $ANTHROPIC_API_KEY" \
+            -H "anthropic-version: 2023-06-01" \
+            --max-time 10 || echo "CURL FAILED with exit code $?"
+
       - name: Run Shortest tests
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
