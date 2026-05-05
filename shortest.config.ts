@@ -8,5 +8,5 @@ export default {
     model: "claude-3-5-sonnet-latest",
     apiKey: process.env.ANTHROPIC_API_KEY
   },
-  testPattern: "**/*.test.ts",
+  testPattern: "tests/shortest/**/*.test.ts",
 } satisfies ShortestConfig;
