@@ -28,7 +28,7 @@ jobs:
 
       - name: Run Shortest tests
         env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           # Ensure this matches exactly what's in your config
           BASE_URL: ${{ github.event.inputs.base-url || 'https://example.com' }}
         run: npx shortest
