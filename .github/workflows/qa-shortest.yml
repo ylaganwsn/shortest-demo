@@ -29,6 +29,14 @@ jobs:
           pip install 'litellm[proxy]' --break-system-packages -q
           litellm --model bedrock/anthropic.claude-3-5-haiku-20241022-v1:0 --port 4000 &
           sleep 8
+          
+      - name: Debug proxy
+        run: |
+          curl -s -X POST http://localhost:4000/v1/messages \
+            -H "Content-Type: application/json" \
+            -H "x-api-key: dummy-key" \
+            -d '{"model":"claude-3-5-sonnet-20241022","max_tokens":10,"messages":[{"role":"user","content":"hi"}]}' \
+            | jq .
 
       - name: Run Shortest tests
         env:
