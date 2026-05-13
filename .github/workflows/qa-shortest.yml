@@ -27,7 +27,7 @@ jobs:
           AWS_DEFAULT_REGION: us-east-1
         run: |
           pip install 'litellm[proxy]' --break-system-packages -q
-          litellm --model bedrock/anthropic.claude-3-5-haiku-20241022-v1:0 --port 4000 &
+          litellm --model bedrock/us.anthropic.claude-3-5-haiku-20241022-v1:0 --port 4000 &
           sleep 8
           
       - name: Debug proxy
