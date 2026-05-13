@@ -5,7 +5,7 @@ export default {
   baseUrl: process.env.BASE_URL || "https://example.com",
   ai: {
     provider: "anthropic",
-    model: "claude-3-5-sonnet-latest",
+    model: "anthropic.claude-3-5-sonnet-20241022-v2:0",
     apiKey: process.env.ANTHROPIC_API_KEY
   },
   testPattern: "tests/shortest/**/*.test.ts",
